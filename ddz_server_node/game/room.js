@@ -108,7 +108,7 @@ module.exports = function(roominfo,player){
              case RoomState.ROOM_PLAYING:
                  
                  resetChuCardPlayer()
-                 //下发出牌消息  
+                 //通知下一个出牌的玩家 
                  turnchuCard()
                  break      
             default:
@@ -322,6 +322,7 @@ module.exports = function(roominfo,player){
             console.log('重置出牌数组');
             resetChuCardPlayer()
         }
+        //通知下一个出牌的玩家
         turnchuCard()
     }
 
@@ -332,6 +333,8 @@ module.exports = function(roominfo,player){
             return
         }
 
+        let gameOver = player.removePushCards(cards);
+        
         for(var i=0;i<that._player_list.length;i++){
             //不转发给自己
             if(that._player_list[i]==player){
@@ -340,11 +343,18 @@ module.exports = function(roominfo,player){
             data = {
                 accountid:player._accountID,
                 cards:cards,
+                IsGameOver:gameOver
             }
             that._player_list[i].SendOtherChuCard(data)
       }
-
-      player.removePushCards(cards)
+      if(gameOver) { //----------------------------游戏结束
+        //切换到等待开始状态
+        changeState(RoomState.ROOM_WAITREADY)
+        }else{
+            //修改位置了  待测试 400 431行已经注释 --------------------------！！！！！
+            that.playerBuChuCard(null,null)
+        }
+      
 
     }
     //玩家出牌
@@ -394,7 +404,7 @@ module.exports = function(roominfo,player){
                 //回调函数会给出牌玩家发送出牌成功消息 
                 cb(0,resp)
                 //通知下一个玩家出牌
-                that.playerBuChuCard(null,null)
+                //that.playerBuChuCard(null,null)
                 //把该玩家出的牌广播给其他玩家
                 sendPlayerPushCard(player,data)
                 return 
@@ -425,7 +435,7 @@ module.exports = function(roominfo,player){
                 //回调函数会给出牌玩家发送出牌成功消息 
                 cb(0,resp)
                 //通知下一个玩家出牌
-                that.playerBuChuCard(null,null)
+                //that.playerBuChuCard(null,null)
                  //把该玩家出的牌广播给其他玩家
                  sendPlayerPushCard(player,data)
             }

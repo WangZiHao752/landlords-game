@@ -1,49 +1,45 @@
-[{
-    "cardid": 13,
-    "card_data": {
-        "index": 13,
-        "value": 3,
-        "shape": 2,
-        "active": true
-    }
-}, {
-    "cardid": 12,
-    "card_data": {
-        "index": 12,
-        "value": 3,
-        "shape": 1,
-        "active": true
-    }
-}, {
-    "cardid": 8,
-    "card_data": {
-        "index": 8,
-        "value": 2,
-        "shape": 1,
-        "active": true
-    }
-}, {
-    "cardid": 9,
-    "card_data": {
-        "index": 9,
-        "value": 2,
-        "shape": 2,
-        "active": true
-    }
-}, {
-    "cardid": 5,
-    "card_data": {
-        "index": 5,
-        "value": 1,
-        "shape": 2,
-        "active": true
-    }
-}, {
-    "cardid": 4,
-    "card_data": {
-        "index": 4,
-        "value": 1,
-        "shape": 1,
-        "active": true
-    }
-}]
+{
+    "cmd": "chu_card_req",
+    "data": [{
+        "cardid": 47,
+        "card_data": {
+            "index": 47,
+            "value": 10,
+            "shape": 4,
+            "active": true
+        }
+    }, {
+        "cardid": 43,
+        "card_data": {
+            "index": 43,
+            "value": 9,
+            "shape": 4,
+            "active": true
+        }
+    }, {
+        "cardid": 34,
+        "card_data": {
+            "index": 34,
+            "value": 8,
+            "shape": 3,
+            "active": true
+        }
+    }, {
+        "cardid": 30,
+        "card_data": {
+            "index": 30,
+            "value": 7,
+            "shape": 3,
+            "active": true
+        }
+    }, {
+        "cardid": 26,
+        "card_data": {
+            "index": 26,
+            "value": 6,
+            "shape": 3,
+            "active": true
+        }
+    }],
+    "callindex": 1
+}

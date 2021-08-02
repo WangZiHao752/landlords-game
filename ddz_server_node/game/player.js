@@ -54,6 +54,12 @@ module.exports = function(info,socket,callindex,gamectr){
            
         }
         console.log('该玩家剩下的牌',that._cards);
+        if(that._cards.length ==0){
+            console.log('游戏结束');
+            return true;  //游戏结束
+        }
+        return false;
+        
    }
 
    //data分3个部分 cmd,{data},callindex
@@ -140,7 +146,6 @@ module.exports = function(info,socket,callindex,gamectr){
                            break   
                        case "chu_card_req":
                             if(that._room){
-            
                                 console.log("that._room")
                                 that._room.playerChuCard(that,data,function(err,result){
                                     if(err){

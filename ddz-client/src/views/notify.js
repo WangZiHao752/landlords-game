@@ -407,6 +407,69 @@ export class cardType{
         return true
     }
 }
+IsCanPushs = function(cardList){
+    if (isOneCard(cardList)) {
+        console.log("isOneCard sucess")
+        return CardsValue.one;
+    }
+
+    if(IsDoubleCard(cardList)){
+        console.log("IsDoubleCard sucess")
+        return CardsValue.double
+    }
+
+    if(Isthree(cardList)){
+        console.log("Isthree sucess")
+        return CardsValue.three
+    }
+
+    if(IsThreeAndOne(cardList)){
+        console.log("IsThreeAndOne sucess")
+        return CardsValue.threeWithOne
+    }
+
+    if(IsThreeAndTwo(cardList)){
+        console.log("IsThreeAndTwo sucess")
+        return CardsValue.threeWithTwo
+    }
+
+    if(IsBoom(cardList)){
+        console.log("IsBoom sucess")
+        return CardsValue.boom
+    }
+
+    if(IsKingBoom(cardList)){
+        console.log("IsKingBoom sucess")
+        return CardsValue.kingboom
+    }
+
+    if(IsPlan(cardList)){
+        console.log("IsPlan sucess")
+        return CardsValue.plane
+    }
+
+    if(IsPlanWithSing(cardList)){
+        console.log("IsPlanWithSing sucess")
+        return CardsValue.planeWithOne
+    }
+
+    if(IsPlanWithDouble(cardList)){
+        console.log("IsPlanWithDouble sucess")
+        return CardsValue.planeWithTwo
+    }
+    
+    if(IsShunzi(cardList)){
+        console.log("IsShunzi sucess")
+        return CardsValue.scroll
+    }
+
+    if(IsLianDui(cardList)){
+        console.log("IsLianDui sucess")
+        return CardsValue.DoubleScroll
+    }
+    //return false
+    return undefined
+}
 // 黑桃：spade
 // 红桃：heart
 // 梅花：club
